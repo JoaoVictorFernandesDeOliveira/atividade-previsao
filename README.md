@@ -1,62 +1,89 @@
-# Automação Selenium — Investidor10 (ITSA3 – 1 dia)
+Previsão do Tempo com Selenium
 
-Script em Python (Selenium) que acessa o **Investidor10**, abre a página da **ITSA3** e seleciona a aba **“1 dia”** na seção **COTAÇÃO ITSA3**, salvando um print da seção.
+Este projeto utiliza Selenium para automatizar a busca da previsão do tempo no Google e capturar uma captura de tela dessa previsão para uma cidade especificada.
 
-## 📦 Requisitos
+Requisitos
 
-- **Python 3.8+**
-- **Google Chrome** instalado
-- **ChromeDriver** compatível com sua versão do Chrome  
-  > Dica: verifique a versão do Chrome em `Ajuda > Sobre o Google Chrome` e baixe o ChromeDriver correspondente.
-- Pacotes Python:
-  ```bash
-  pip install selenium
+Antes de executar o código, é necessário garantir que você tenha os seguintes pré-requisitos:
 
+1. Instalar o Python
 
-(Opcional) Para não se preocupar com o caminho do ChromeDriver, você pode usar webdriver-manager. Esse projeto usa caminho local por padrão.
+O código foi escrito em Python, então você precisará do Python instalado na sua máquina. Você pode baixar a versão mais recente do Python no site oficial: https://www.python.org/downloads/
 
-📁 Estrutura sugerida
-/
-├─ investidor10_itsa3_1dia.py
-├─ README.md
-└─ .gitignore
+2. Instalar o Selenium
 
-⚙️ Configuração
+Selenium é uma biblioteca Python usada para controlar o navegador de forma automatizada. Para instalá-lo, execute o seguinte comando:
 
-No arquivo investidor10_itsa3_1dia.py, ajuste:
+pip install selenium
 
-CHROMEDRIVER_PATH → caminho completo do seu chromedriver.exe
+3. Instalar o ChromeDriver
 
-DOWNLOAD_DIR → pasta onde o screenshot será salvo (padrão: C:\Users\aluno\Downloads\unieuro_downloads)
+O Selenium precisa do ChromeDriver, que é um driver específico para controlar o Google Chrome. O driver deve ser compatível com a versão do seu navegador Chrome. Siga os passos abaixo:
 
-HEADLESS = False se quiser ver o navegador durante a execução (recomendado na primeira vez)
+Baixe o ChromeDriver de acordo com a versão do seu Chrome: Baixar ChromeDriver
+.
 
-▶️ Como executar
+Extraia o arquivo e coloque-o em um diretório da sua escolha (por exemplo, C:\chromedriver\ no Windows ou /usr/local/bin/ no macOS/Linux).
 
-No Windows (PowerShell ou Prompt de Comando), na pasta do projeto:
+Certifique-se de atualizar a variável CHROMEDRIVER_PATH no código com o caminho onde o ChromeDriver foi salvo. Exemplo:
 
-python atividade0310.py
+CHROMEDRIVER_PATH = r"C:\Users\aluno\Desktop\Selenium-Investidor10-main\Selenium-Investidor10-main\chromedriver\chromedriver.exe"
+
+4. Configurar a cidade e o diretório de download
+
+Cidade: Altere o nome da cidade na variável CIDADE dentro do código para a cidade desejada.
+
+CIDADE = "São Paulo"  # Altere para a cidade desejada
 
 
-Saída esperada:
+Diretório de saída: O código salvará a captura de tela da previsão do tempo na pasta Downloads. Verifique a variável DOWNLOAD_DIR para garantir que o caminho esteja correto.
 
-Um arquivo cotacao_itsa3_1dia.png salvo na pasta definida em DOWNLOAD_DIR.
+DOWNLOAD_DIR = r"C:\Users\aluno\Downloads\unieuro_downloads"
 
-🧪 Problemas comuns
+5. Requisitos adicionais
 
-FileNotFoundError: ChromeDriver não encontrado
-Corrija o caminho em CHROMEDRIVER_PATH para onde o chromedriver.exe realmente está.
+Certifique-se de que o diretório onde o código será executado tenha permissões adequadas para salvar o arquivo de captura de tela.
 
-Versão incompatível entre Chrome e ChromeDriver
-Baixe a versão correta do ChromeDriver compatível com seu Chrome.
+Como Executar o Código
 
-Botão “1 dia” não é clicado
-Rode com HEADLESS = False e verifique se há pop-up de cookies. O script já tenta fechar automaticamente botões como “Aceitar/Concordo/Entendi”.
+Após garantir que todos os requisitos foram instalados corretamente, siga os passos abaixo para executar o código:
 
-🔐 Dica de segurança
+Clone ou baixe o código: Faça o download ou clone o repositório contendo o código Python.
 
-Não versione senhas, tokens ou dados pessoais. Evite subir arquivos como *.log, *.env e pastas temporárias.
+Abra o terminal ou prompt de comando:
 
-🧾 Licença
+No Windows: Abra o Prompt de Comando ou PowerShell.
 
-Uso educacional/demonstrativo. Ajuste para sua necessidade.
+No macOS/Linux: Abra o Terminal.
+
+Acesse o diretório do código:
+Navegue até o diretório onde o código está armazenado. Exemplo:
+
+cd C:\caminho\para\seu\projeto
+
+
+Instale as dependências (se não tiver feito isso antes):
+
+Se você ainda não instalou o Selenium, use o comando:
+
+pip install selenium
+
+
+Execute o código:
+
+Para rodar o código, execute o script Python. No terminal ou prompt de comando, digite:
+
+python previsao_tempo.py
+
+
+Visualizando o resultado:
+
+O script irá:
+
+Abrir o navegador e buscar pela previsão do tempo no Google para a cidade definida.
+
+Capturar a previsão do tempo.
+
+Salvar a captura de tela no diretório especificado (por exemplo, C:\Users\aluno\Downloads\unieuro_downloads).
+
+O nome do arquivo de captura será no formato previsao_sao_paulo.png, mas isso pode ser alterado conforme preferir.
